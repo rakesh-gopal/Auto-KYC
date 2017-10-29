@@ -10,6 +10,9 @@
 
 <template name="hello">
 <table>
+    {{#if cur_image}}
+        {{> panInfo cur_image}}
+    {{/if}}
     {{#each new_images}}
         {{> imgInfo}}
     {{/each}}
@@ -20,6 +23,24 @@
 <tr>
     <td>{{auto_vals.name.val}}</td>
     <td>{{auto_vals.pan.val}}</td>
-    <td><button>View Info</button></td>
+    <td><button class="view-info">View Info</button></td>
 </tr>
 </template>
+
+<template name="panInfo">
+<table>
+    <tr>
+        <td>Name: </td>
+        <td>{{auto_vals.name.val}}</td>
+    </tr>
+    <tr>
+        <td>PAN: </td>
+        <td>{{auto_vals.pan.val}}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><button class="view-info">View Info</button> </td>
+    </tr>
+</table>
+</template>
+
