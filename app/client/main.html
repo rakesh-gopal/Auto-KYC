@@ -1,0 +1,25 @@
+<head>
+  <title>app</title>
+</head>
+
+<body>
+  <h1>Verify PAN info</h1>
+
+  {{> hello}}
+</body>
+
+<template name="hello">
+<table>
+    {{#each new_images}}
+        {{> imgInfo}}
+    {{/each}}
+</table>
+</template>
+
+<template name="imgInfo">
+<tr>
+    <td>{{auto_vals.name.val}}</td>
+    <td>{{auto_vals.pan.val}}</td>
+    <td><button>View Info</button></td>
+</tr>
+</template>
