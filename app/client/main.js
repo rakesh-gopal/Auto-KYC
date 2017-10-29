@@ -43,5 +43,44 @@ Template.hello.events({
     });
     */
   },
+  'click .submit-changes'(event, instance) {
+        console.log(this._id);
+
+        Tasks.update({ _id: this._id }, {
+            $set: {
+                'is_verified': true,
+                'is_rejected': false,
+                'auto_is_correct': false,
+                'manual': {
+                    'name': this.auto_vals.name.value,
+                    'pan': this.auto_vals.pan.value,
+                    'dob': this.auto_vals.dob.value,
+                    'father_name': this.auto_vals.father_name.value
+                }
+            }
+        });
+  },
+  'click .info-is-correct'(event, instance) {
+        console.log(this._id);
+
+        Tasks.update({ _id: this._id }, {
+            $set: {
+                'is_verified': true,
+                'is_rejected': false,
+                'auto_is_correct': true,
+            }
+        });
+  },
+  'click .reject-record'(event, instance) {
+        console.log(this._id);
+
+        Tasks.update({ _id: this._id }, {
+            $set: {
+                'is_verified': true,
+                'is_rejected': true,
+                'auto_is_correct': true,
+            }
+        });
+  },
 });
 
