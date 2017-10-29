@@ -2,3 +2,15 @@
 table {
     width: 90%;
 }
+table.pan-info {
+    width: auto;
+    border: solid 1px #009;
+}
+table.pan-info td {
+    padding: 3px;
+    padding-right: 50px;
+}
+table.pan-info button{
+    float: right;
+    margin: 5px;
+}

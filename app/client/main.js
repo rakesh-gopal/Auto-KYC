@@ -24,7 +24,9 @@ Template.hello.helpers({
       return Tasks.find({is_processed: true, is_verified: false});
   },
   cur_image() {
-      return Tasks.findOne({_id:Template.instance().cur_rec.get()})
+      cur = Tasks.findOne({_id:Template.instance().cur_rec.get()});
+      cur.is_photoshopped_confidence = parseInt(cur.is_photoshopped_confidence);
+      return cur;
   },
 });
 

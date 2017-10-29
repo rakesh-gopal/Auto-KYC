@@ -9,10 +9,14 @@
 </body>
 
 <template name="hello">
-<table>
-    {{#if cur_image}}
-        {{> panInfo cur_image}}
-    {{/if}}
+
+{{#if cur_image}}
+    {{> panInfo cur_image}}
+{{/if}}
+
+<br/><hr/><br/>
+
+<table class="pan-list">
     {{#each new_images}}
         {{> imgInfo}}
     {{/each}}
@@ -28,18 +32,42 @@
 </template>
 
 <template name="panInfo">
-<table>
+<table class="pan-info">
+    <tr>
+        <td>Is Photoshopped: </td>
+        <td>{{is_photoshopped}}</td>
+        <td>Confidence: {{is_photoshopped_confidence}}%</td>
+    </tr>
     <tr>
         <td>Name: </td>
         <td>{{auto_vals.name.val}}</td>
+        <td><input type="text" value="{{auto_vals.name.val}}"/></td>
     </tr>
     <tr>
         <td>PAN: </td>
         <td>{{auto_vals.pan.val}}</td>
+        <td><input type="text" value="{{auto_vals.pan.val}}"/></td>
     </tr>
     <tr>
-        <td></td>
-        <td><button class="view-info">View Info</button> </td>
+        <td>DOB: </td>
+        <td>{{auto_vals.dob.val}}</td>
+        <td><input type="text" value="{{auto_vals.dob.val}}"/></td>
+    </tr>
+    <tr>
+        <td>Father Name: </td>
+        <td>{{auto_vals.father_name.val}}</td>
+        <td><input type="text" value="{{auto_vals.father_name.val}}"/></td>
+    </tr>
+    <tr>
+        <td>
+            <button class="view-info">Reject Record</button>
+        </td>
+        <td>
+            <button class="view-info">Info is correct</button>
+        </td>
+        <td>
+            <button class="view-info">Submit Changes</button>
+        </td>
     </tr>
 </table>
 </template>
